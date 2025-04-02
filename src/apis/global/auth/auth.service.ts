@@ -40,6 +40,8 @@ const login = async (req: Request): Promise<IResponse> => {
   );
 
   if (!user) throw httpError.Unauthorized('Invalid email or password');
+  if (user.deleted_at !== null)
+    throw httpError.UnprocessableEntity('User have been deleted');
 
   const isMatch = await user.comparePassword(password);
   if (!isMatch) throw httpError.Unauthorized('Invalid email or password');
