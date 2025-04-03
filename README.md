@@ -1,6 +1,6 @@
-# MSAFRUN-EXPRESS-TS-BOILERPLATE
+# OCTOMATE-VOTE-API
 
-This project is a **simple Express.js API boilerplate written in TypeScript**. It provides a structured foundation for building RESTful APIs with features like organized routing, middleware setup, and seeders for initial data population.
+This project is a **simple Express.js API written in TypeScript**. It provides a structured foundation for building RESTful APIs with features like organized routing, middleware setup, seeders for initial data population, and simple features (user management, vote candidates).
 
 ## Project Structure
 
@@ -13,14 +13,15 @@ This project is a **simple Express.js API boilerplate written in TypeScript**. I
     │   │   ├── user/
     │   │   └── v1/
     │   │       ├── controllers/
+    │   │       ├── dtos/
+    │   │       ├── models/
     │   │       ├── routes/
-    │   │       └── services/
+    │   │       ├── services/
+    │   │       └── tests/
     │   ├── configs/
     │   ├── constants/
     │   ├── middlewares/
     │   ├── seeders/
-    │   ├── roles.json
-    │   ├── users.json
     │   └── utils/
     ├── app.ts
     ├── server.ts
@@ -33,6 +34,27 @@ This project is a **simple Express.js API boilerplate written in TypeScript**. I
     ├── package.json
     └── tsconfig.json
 
+## API Routes
+
+**Health Check (`/api/health`):**
+* **`GET /`:** For making sure Api is running.
+
+**Authentication (`/api/auth`):**
+* **`POST /register`:** Register a new user.
+* **`POST /login`:** Log in a user.
+* **`POST /refresh-token`:** Refresh the JWT token.
+
+**User Management (`/api/user`):**
+* **`POST /`:** Create new user.
+* **`GET /`:** Get list user.
+* **`GET /:user_id`:** Get user detail.
+* **`PATCH /:user_id`:** Update user.
+* **`DELETE /:user_id`:** Delete user.
+
+**Votes (`/api/v1/vote`):**
+* **`POST /`:** Vote a candidate.
+* **`GET /`:** Get list candidate.
+* **`GET /total`:** Get total all vote, and per candidates.
 
 ## Prerequisites
 
@@ -95,6 +117,7 @@ This project is a **simple Express.js API boilerplate written in TypeScript**. I
 * **`npm run dev`**: Runs the application in development mode with hot reloading.
 * **`npm run start`**: Starts the application in production mode.
 * **`npm run seed`**: Runs the database seeder.
+* **`npm run test:unit`**: Runs unit testing.
 
 ## Contributing
 

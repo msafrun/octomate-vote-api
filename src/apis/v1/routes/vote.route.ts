@@ -5,12 +5,14 @@ import {
 } from '../../../middlewares/auth.middleware';
 import { voteController } from '../controllers/index.controller';
 import { RoleName } from '../../../constants/role.constant';
+import validate from '../../../middlewares/validate-dto.middleware';
+import { createVoteSchema } from '../dtos/vote.dto';
 
 const router = Router();
 router.use(authenticate);
 
 // POST
-router.post('/', voteController.voteCandidate);
+router.post('/', validate(createVoteSchema), voteController.voteCandidate);
 
 // GET
 router.get('/', voteController.listCandidate);
