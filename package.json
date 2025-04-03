@@ -7,7 +7,9 @@
     "test:unit": "mocha --require ts-node/register 'src/apis/v1/tests/unit/services/**/*.spec.ts'",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
-    "seed": "ts-node src/seeders/seed.ts"
+    "seed": "ts-node src/seeders/seed.ts",
+    "build": "tsc",
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "",
